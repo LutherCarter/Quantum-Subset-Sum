@@ -12,23 +12,17 @@ The circuit architecture consists of $n$ index qubits (representing subset inclu
 
 ### 1. State Initialization
 We initialize the $n$ index qubits in a uniform superposition:
-$$
-| \psi_0 \rangle = H^{\otimes n} |0\rangle^{\otimes n} = \frac{1}{\sqrt{2^n}} \sum_{k=0}^{2^n-1} |k\rangle
-$$
+$$ | \psi_0 \rangle = H^{\otimes n} |0\rangle^{\otimes n} = \frac{1}{\sqrt{2^n}} \sum_{k=0}^{2^n-1} |k\rangle $$
 Each computational basis state $|k\rangle$ corresponds to a unique subset of the input array.
 
 ### 2. The Oracle (Draper QFT Adder)
 To compute the sum without destroying the superposition, we utilize a Draper adder on the accumulator register (initially $|0\rangle$).
 
 We apply the QFT to the accumulator:
-$$
-\text{QFT} |0\rangle^{\otimes m} = \frac{1}{\sqrt{2^m}} \sum_{y=0}^{2^m-1} |y\rangle
-$$
+$$ \text{QFT} |0\rangle^{\otimes m} = \frac{1}{\sqrt{2^m}} \sum_{y=0}^{2^m-1} |y\rangle $$
 
 Then, for each element $x_i$ in the input array, controlled by the $i$-th index qubit, we apply controlled-phase shifts to the accumulator. The phase applied to the $j$-th qubit (where $j=0$ is the most significant phase bit in Qiskit's convention, or $j \in [0, m-1]$ from LSB to MSB in standard binary notation) is defined by the rotation operator:
-$$
-R_Z \left( \frac{2\pi x_i}{2^{m-j}} \right)
-$$
+$$ R_Z \left( \frac{2\pi x_i}{2^{m-j}} \right) $$
 
 These rotations effectively add $x_i$ to the accumulator in the phase representation:
 $$

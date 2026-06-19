@@ -54,7 +54,7 @@ U_s = 2|s\rangle\langle s| - I
 Where $|s\rangle$ is the uniform superposition state.
 
 ### Complexity
-The quantum algorithm finds a solution in $\mathcal{O}(\sqrt{2^n})$ evaluations, representing a quadratic speedup over classical brute-force search ($\mathcal{O}(2^n)$).
+The quantum algorithm finds a solution in $\mathcal{O}(\sqrt{2^n})$ evaluations, representing a quadratic speedup over classical brute-force search: $\mathcal{O}(2^n)$.
 
 ## Benchmarking & Validation
 

@@ -65,24 +65,17 @@ The suite verifies:
 - **Boundary cases:** Maximum bounds (e.g. $n=4, x_i=7, t=28$).
 - **Null cases:** Unsolvable targets result in diffuse, near-uniform probability distributions instead of collapsing to a false positive.
 
-### Running Tests
-To run the automated tests locally, use `pytest`:
-```bash
-pytest test_subset_sum.py -v
-```
-To achieve optimal statevector benchmarking performance, the backend strictly configures CPU threading.
+### Running the Code
 
-## Interactive Demonstration
+The entire project, including the core algorithm, interactive demonstration, and testing suite, has been consolidated into a Jupyter Notebook (`Quantum_Subset_Sum.ipynb`).
 
-In addition to the headless testing suite, the project includes an interactive demonstration script.
+To run the notebook locally:
+1. Install Jupyter and necessary dependencies (`qiskit`, `pytest`, `matplotlib`).
+2. Launch Jupyter Notebook or Jupyter Lab.
+3. Open `Quantum_Subset_Sum.ipynb` and run the cells sequentially.
 
-You can run the script using Python:
-```bash
-python run_demo.py
-```
-
-The `run_demo.py` script allows you to:
-1. Interactively input a custom array of integers and a target sum.
-2. Build and execute the full Grover-QFT subset sum circuit on the Qiskit Aer backend.
-3. Automatically parse the results and translate the highest probability state back into human-readable subset values.
-4. Generate and save a visual bar chart (`histogram_results.png`) plotting the subset probability distribution (requires `matplotlib`).
+The notebook allows you to:
+1. View the core implementation logic.
+2. Interactively input a custom array of integers and a target sum to build and execute the circuit.
+3. Automatically parse results and generate visual bar charts.
+4. Run the automated testing suite directly within the notebook to verify boundary and edge cases.
